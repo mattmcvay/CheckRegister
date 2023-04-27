@@ -1,0 +1,59 @@
+﻿<Window x:Class="CheckBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CheckBook"
+        mc:Ignorable="d"
+        Title="Checkbook" Background ="Gray" Height="542" Width="806">
+    <Grid Height="476" VerticalAlignment="Top">
+        <Grid.ColumnDefinitions>
+            
+        </Grid.ColumnDefinitions>
+        <DataGrid x:Name="DataGridXAML" HorizontalAlignment="Left" Height="301" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" AutoGenerateColumns="False" ItemsSource="{Binding}" CanUserAddRows="False" HeadersVisibility="Column" CanUserDeleteRows="True" BorderBrush="Black">
+            <!-- Font color, style of column headings -->
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="Background" Value="Turquoise"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                    <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                    <Setter Property="BorderBrush" Value="Black"/>
+                    <Setter Property="Padding" Value="3"/>
+                </Style>
+                <Style x:Key="rightAlignedColumn" TargetType="{x:Type TextBlock}">
+                    <Setter Property="TextAlignment" Value="Right" />
+                    <Setter Property="Padding" Value="3 0"/>
+                </Style>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </DataGrid.Resources>
+            <!-- Column Header Text and Bindings -->
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="TN" Binding="{Binding TransactionNum}" Width="40"/>
+                <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="70" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date, StringFormat=d}" Width="90" IsReadOnly="False"/>
+                <DataGridTextColumn Header="CheckNum" Binding="{Binding CheckNum, StringFormat='{}{0:0;;#}'}" Width="70" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Description" Binding="{Binding Description}" Width="300" IsReadOnly="False"/>
+                <DataGridTextColumn Header="Withdrawal" Binding="{Binding Withdrawal, StringFormat='{}{0:0,0.00;;#}'}" Width="100" IsReadOnly="False" ElementStyle="{StaticResource rightAlignedColumn}"/>
+                <DataGridTextColumn Header="Deposit" Binding="{Binding Deposit, StringFormat='{}{0:0,0.00;;#}'}" Width="*" IsReadOnly="False" ElementStyle="{StaticResource rightAlignedColumn}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="AddNewEntryBN" Content="Add" HorizontalAlignment="Left" Margin="216,459,0,-8" VerticalAlignment="Top" Width="75" Height="25" Click="AddNewEntryBN_Clicked" BorderBrush="Black" FontWeight="Medium"/>
+        <TextBox x:Name="typeTB" HorizontalAlignment="Left" Height="23" Margin="15,399,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="88" VerticalContentAlignment="Center" RenderTransformOrigin="0.554,-0.391" BorderBrush="Black"/>
+        <TextBox x:Name="checknumTB" HorizontalAlignment="Left" Height="23" Margin="234,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" VerticalContentAlignment="Center" RenderTransformOrigin="0.529,1.13" BorderBrush="Black"/>
+        <TextBox x:Name="descritptionTB" HorizontalAlignment="Left" Height="23" Margin="308,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266" VerticalContentAlignment="Center" RenderTransformOrigin="0.489,1.348" BorderBrush="Black"/>
+        <TextBox x:Name="withdrawalTB" HorizontalAlignment="Left" Height="23" Margin="579,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.495,-0.696" VerticalContentAlignment="Center" BorderBrush="Black"/>
+        <TextBox x:Name="depositTB" HorizontalAlignment="Left" Height="23" Margin="685,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="97" VerticalContentAlignment="Center" BorderBrush="Black"/>
+        <DatePicker x:Name="datePickerBox" HorizontalAlignment="Left" Margin="108,399,0,0" VerticalAlignment="Top" Width="121" RenderTransformOrigin="0.479,1.458" BorderBrush="Black"/>
+        <TextBox x:Name="totalTB" HorizontalAlignment="Left" Height="23" Margin="685,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" VerticalContentAlignment="Center" RenderTransformOrigin="0.515,1.043" BorderBrush="Black" TextBlock.TextAlignment="Center"/>
+        <Button x:Name="RemoveEntryBn" Content="Remove" HorizontalAlignment="Left" Margin="359,459,0,-8" Width="75" Click="RemoveEntryBn_Click" Height="25" VerticalAlignment="Top" BorderBrush="Black" FontWeight="Medium"/>
+        <Label Content="Balance" HorizontalAlignment="Left" Margin="618,326,0,0" VerticalAlignment="Top" FontWeight="Medium" FontSize="15" />
+        <Label Content="Debit/Deposit" HorizontalAlignment="Left" Margin="10,369,0,0" VerticalAlignment="Top" Width="93" FontWeight="Medium"/>
+        <Label Content="CheckNum" HorizontalAlignment="Left" Margin="229,369,0,0" VerticalAlignment="Top" Height="31" FontWeight="Medium"/>
+        <Label Content="Description" HorizontalAlignment="Left" Margin="307,369,0,0" VerticalAlignment="Top" FontWeight="Medium"/>
+        <Label Content="Withdrawal" HorizontalAlignment="Left" Margin="579,370,0,0" VerticalAlignment="Top" FontWeight="Medium"/>
+        <Label Content="Deposit" HorizontalAlignment="Left" Margin="685,370,0,0" VerticalAlignment="Top" FontWeight="Medium"/>
+        <Button Content="Update" HorizontalAlignment="Left" Margin="498,459,0,-8" VerticalAlignment="Top" Width="75" Height="25" Click="Button_Click" BorderBrush="Black" FontWeight="Medium"/>
+    </Grid>
+</Window>
