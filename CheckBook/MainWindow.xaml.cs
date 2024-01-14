@@ -17,6 +17,9 @@ namespace CheckBook
 
             populateTable();
 
+            string[] comboItems = new[] { "Debit", "Deposit" };
+            typeTB.ItemsSource = comboItems;
+
             datePickerBox.SelectedDate = DateTime.Now;
 
             showTotal();
@@ -102,7 +105,7 @@ namespace CheckBook
         // Methods...................................................................................
         public void clear()
         {
-            typeTB.Clear();
+            typeTB.SelectedIndex = -1;
             datePickerBox.SelectedDate = DateTime.Now;
             checknumTB.Clear();
             descritptionTB.Clear();
@@ -146,5 +149,6 @@ namespace CheckBook
             DataGridXAML.ItemsSource = dt.DefaultView;
             da.Update(dt);
         }
+
     }
 }

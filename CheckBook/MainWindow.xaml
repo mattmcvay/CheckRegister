@@ -40,7 +40,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button x:Name="AddNewEntryBN" Content="Add" HorizontalAlignment="Left" Margin="216,459,0,-8" VerticalAlignment="Top" Width="75" Height="25" Click="AddNewEntryBN_Clicked" BorderBrush="Black" FontWeight="Medium"/>
-        <TextBox x:Name="typeTB" HorizontalAlignment="Left" Height="23" Margin="15,399,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="88" VerticalContentAlignment="Center" RenderTransformOrigin="0.554,-0.391" BorderBrush="Black"/>
+        <ComboBox x:Name="typeTB" Text="Debit" HorizontalAlignment="Left" Height="23" Margin="15,399,0,0"   VerticalAlignment="Top" Width="88" VerticalContentAlignment="Center" RenderTransformOrigin="0.554,-0.391" BorderBrush="Black" ></ComboBox>
         <TextBox x:Name="checknumTB" HorizontalAlignment="Left" Height="23" Margin="234,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="68" VerticalContentAlignment="Center" RenderTransformOrigin="0.529,1.13" BorderBrush="Black"/>
         <TextBox x:Name="descritptionTB" HorizontalAlignment="Left" Height="23" Margin="308,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="266" VerticalContentAlignment="Center" RenderTransformOrigin="0.489,1.348" BorderBrush="Black"/>
         <TextBox x:Name="withdrawalTB" HorizontalAlignment="Left" Height="23" Margin="579,400,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="101" RenderTransformOrigin="0.495,-0.696" VerticalContentAlignment="Center" BorderBrush="Black"/>
